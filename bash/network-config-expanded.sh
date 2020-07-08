@@ -62,6 +62,9 @@ EOF
 #####
 # define the interface being summarized
 interface="eno1"
+ethernet=$(ip link show | cut -d ''-f 2)
+
+
 
 # Find an address and hostname for the interface being summarized
 # we are assuming there is only one IPV4 address assigned to this interface
