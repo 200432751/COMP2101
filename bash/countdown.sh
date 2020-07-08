@@ -88,3 +88,24 @@ doCountdown|dialog --gauge "Remaining Time" 7 60
 stty sane
 
 echo "Wait counter expired, exiting peacefully"
+
+
+#declaring variable cleanup for trap SIGINT
+trap cleanup SIGINT
+
+#declaring variable clean for trap SIGQUIT
+trap clean SIGQUIT
+
+#function for SIGQUIT
+function clean {
+  echo "You found the secret to getting out of script"
+  exit 0
+
+}
+
+#function for SIGINT
+function cleanup {
+  echo "You are not allowed to interupt the count"
+    sleepCount=$(($numberOfSleeps + 1))
+
+}
